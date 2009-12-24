@@ -13,3 +13,4 @@ rubygem "restclient" => 'rest-client'
 
 require 'models/result'
 require 'models/stream'
+require 'helpers'

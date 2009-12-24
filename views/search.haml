@@ -2,6 +2,5 @@
   - @results.each do |result|
     %tr
       %td= result.name
-      %td= result.album_name
-      %td
-        %a{:href => "/songs/#{result.id}"} Download
+      %td= result.artist_name
+      %td= link_to "Download", "/songs/#{result.id}", :name => result.name
