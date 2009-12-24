@@ -6,6 +6,10 @@ rescue LoadError
 end
 
 rubygem 'sinatra/base'
-rubygem 'yajl' => 'yajl-ruby'
 rubygem 'haml'
 rubygem 'rack-lesscss'
+rubygem 'yajl' => 'yajl-ruby'
+rubygem "restclient" => 'rest-client'
+
+require 'models/result'
+require 'models/stream'

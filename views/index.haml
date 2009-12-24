@@ -1,1 +1,10 @@
 %h1 Groovedown!
+
+%form{:action => "/search", :method => "post"}
+  %p
+    %input{:type => "text", :name => "query"}
+    %br
+    %select{:name => "type"}
+      %option Songs
+    %br
+    %input{:type => "submit", :value => "Search!"}
