@@ -7,6 +7,7 @@ module Groovedown
     if ENV['RACK_ENV'] == 'development'
       use Rack::LessCss, :less_path => File.join(File.dirname(__FILE__), "views", "css", "less"),
                          :css_route => "/css"
+      use Rack::Evil
     end
                        
     get '/' do
@@ -22,10 +23,12 @@ module Groovedown
       haml :search
     end
     
-    get "/songs/:id" do
+    get "/songs/:id" do  
+	    content_type "mp3"
+  
       @stream = Stream.new(params[:id])
       if data = @stream.get
-        send_data data, :filename => "#{params[:name] || params[:id]}.mp3"
+        data 
       else
         "They don't like us. :("
       end
