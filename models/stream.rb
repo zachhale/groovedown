@@ -14,19 +14,20 @@ class Stream
         "client" => "gslite"},
       "parameters" => {
         "songID" => song_id,
-        "prefetch" => false},
+        "prefetch" => false },
       "method" => "getStreamKeyFromSongID"
     }
-    
+
     response = RestClient.post("http://cowbell.grooveshark.com/more.php?getStreamKeyFromSongID", 
-                               Yajl::Encoder.encode(request), 
+                               request.to_json, 
                                :content_type => "application/json")
-    stream_result = Yajl::Parser.parse(response)["result"]["result"]
-    
+
+    stream_result = JSON.parse(response)["result"]["result"]
+
     stream_key = stream_result["streamKey"]
     stream_server = stream_result["streamServer"]
     stream_url = "http://#{stream_server}/stream.php"
-    
+
     if stream_key
       RestClient.post(stream_url, 
                       :streamKey => stream_key, 

@@ -9,7 +9,9 @@ rubygem 'sinatra/base'
 rubygem 'haml'
 rubygem 'rack-lesscss'
 rubygem 'yajl' => 'yajl-ruby'
+require "yajl/json_gem"
 rubygem "restclient" => 'rest-client'
+
 
 require 'models/result'
 require 'models/stream'
