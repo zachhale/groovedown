@@ -24,7 +24,7 @@ class Result < OpenStruct
                  :track_num => song['TrackNum'],
                  :score => song['Score'],
                  :length => song['EstimateDuration'],
-                 :id => song['SongID'],
+                 :song_id => song['SongID'],
                  :year => song['Year'])
     end
   end

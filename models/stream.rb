@@ -1,12 +1,12 @@
 class Stream
-  attr_reader :id
+  attr_reader :song_id
   
-  def initialize(id)
-    @id = id
+  def initialize(song_id)
+    @song_id = song_id
   end
   
   def get
-    song_id = @id.to_i
+    song_id = @song_id.to_i
     
     request = {
       "header" => {
