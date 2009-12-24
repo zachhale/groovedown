@@ -11,7 +11,7 @@ rubygem 'rack-lesscss'
 rubygem 'yajl' => 'yajl-ruby'
 require "yajl/json_gem"
 rubygem "restclient" => 'rest-client'
-
+rubygem 'rack/contrib' => 'rack-contrib'
 
 require 'models/result'
 require 'models/stream'
