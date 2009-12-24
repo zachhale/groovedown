@@ -23,12 +23,12 @@ module Groovedown
       haml :search
     end
     
-    get "/songs/:id" do  
-	    content_type "mp3"
-  
+    get "/songs/:id" do    
       @stream = Stream.new(params[:id])
       if data = @stream.get
-        data 
+        content_type "mp3"
+        attachment "#{params[:name]||params[:id]}.mp3"
+        halt data.to_s
       else
         "They don't like us. :("
       end
