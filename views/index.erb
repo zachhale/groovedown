@@ -1,0 +1,30 @@
+<div id="about" class="selectable">
+	<p>This is a hack for the most excellent Grooveshark service.</p>
+  <p>Even thought Grooveshark is totally awesome, its built in flash!</p>
+
+  <p>Zach Hale and Mel Gray built this mobile frontend for the Grooveshark service so they could listen to music from their iPhones.  If you have an iPhone thats probably why you are here. ENJOY!</p>
+  <p><br /><br /><a href="#" class="grayButton goback">Close</a></p>
+
+</div>
+
+<div id="home" class="current">
+  <div class="toolbar">
+    <h1>Groovedown</h1>
+    <a class="button slideup" id="infoButton" href="#about">About</a>
+  </div>
+ 
+  <form id="ajax_post" action="/search" method="POST" class="form">
+    <ul class="edit rounded">
+      <li><input type="text" name="search" placeholder="What do you wanna listen to?" id="some_name" /></li>
+      <li>
+        <select id="lol">
+	        <option>Songs</option>
+	        <option>Artists</option>
+	        <option>Albums</option>
+        </select>
+      </li>
+    </ul>
+    <a href="#" class="submit grayButton" style="margin: 10px">Search</a>
+
+  </form>	
+</div>

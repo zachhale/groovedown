@@ -5,6 +5,7 @@ rescue LoadError
   raise "** Please `gem install #{gem || file.split('/')[0]}`"
 end
 
+require "net/http"	  
 rubygem 'sinatra/base'
 rubygem 'haml'
 rubygem 'rack-lesscss'
