@@ -18,12 +18,18 @@ module Groovedown
     post '/search' do
 	    p params
       @results = Result.find(params)
-      haml :search
+      erb :search, :layout => false
     end
     
     get "/songs/:id" do 
       @stream = Stream.new(params[:id])
-      throw :response, [200, {"Content-Type" => "audio/mpeg", "Content-Length" => @stream.length }, @stream]
+      if data = @stream.get
+        content_type "mp3"
+        attachment "#{params[:name]||params[:id]}.mp3"
+        halt data.to_s
+      else
+        "They don't like us. :("
+      end
     end
 
   end

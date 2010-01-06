@@ -16,9 +16,9 @@ class Result < OpenStruct
     }
     
     response = RestClient.post("http://cowbell.grooveshark.com/more.php?getSearchResults", 
-                               Yajl::Encoder.encode(request), :content_type => "application/json")
+                               request.to_json, :content_type => "application/json")
     
-    Yajl::Parser.parse(response)['result']['Return'].map do |song|
+    JSON.parse(response)['result']['Return'].map do |song|
       Result.new(:artist_name => song['ArtistName'],
                  :name => song['SongName'],
                  :track_num => song['TrackNum'],

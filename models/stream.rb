@@ -1,3 +1,6 @@
+# FIXME:  This needs an overhaul.
+# We shouldn't depend on ruby to do the chunking, proxing, and handling seeks.
+# Just grab a stream and forward on to the client.  Digging into HAproxy guts :-\
 class Stream
   attr_reader :song_id
   
@@ -13,6 +16,12 @@ class Stream
 		@stream_key = @stream_result["streamKey"]
 		@stream_server = @stream_result["streamServer"]
 		@stream_url = "http://#{@stream_server}/stream.php"
+  end
+
+  def get
+  	if @stream_key
+      RestClient.post(@stream_url, :steamKey => @stream_key, :content_type => "application/x-www-form-urlencoded")
+	  end
   end
 
   def length
