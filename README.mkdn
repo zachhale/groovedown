@@ -1,6 +1,6 @@
-[melito](http://github.com/melito) is responsible for the hard parts
+Groovedown.
+===========
 
-Status:  Totally borked, don't use just yet.  Have basic jqTouch integration in place.  
-         Gonna start wiring up forms and the such right quick.
-         I like HAML, but it'll just get in the way right now.  
-         Once this has better form I'll go back and clean everything up.
+Little project built on jqTouch and Sinatra.
+
+Only thing realy special about it, is not being built in flash :)

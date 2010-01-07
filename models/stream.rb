@@ -1,6 +1,3 @@
-# FIXME:  This needs an overhaul.
-# We shouldn't depend on ruby to do the chunking, proxing, and handling seeks.
-# Just grab a stream and forward on to the client.  Digging into HAproxy guts :-\
 class Stream
   attr_reader :song_id, :server, :key
   
