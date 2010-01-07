@@ -16,7 +16,6 @@ module Groovedown
     end
     
     post '/search' do
-	    p params
       @results = Result.find(params)
       erb :search, :layout => false
     end
