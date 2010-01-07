@@ -1,0 +1,11 @@
+<div id="results">
+	<div class="toolbar">
+		<h1 id="search_results">Search Results</h1>
+		<a href='#' class='button back'>Back</a>
+	</div>
+	<ul>
+	  <% for result in @results %>
+	  <li><%= link_to result.name, "/songs/#{result.song_id}" %></li>
+	  <% end %>
+	</ul>	
+</div>

@@ -23,13 +23,7 @@ module Groovedown
     
     get "/songs/:id" do 
       @stream = Stream.new(params[:id])
-      if data = @stream.get
-        content_type "mp3"
-        attachment "#{params[:name]||params[:id]}.mp3"
-        halt data.to_s
-      else
-        "They don't like us. :("
-      end
+      redirect "/songs/#{@stream.key}/#{@stream.server}"
     end
 
   end
