@@ -22,7 +22,7 @@ module Groovedown
     
     get "/songs/:id" do 
       @stream = Stream.new(params[:id])
-      redirect "/songs/#{@stream.key}/#{@stream.server}"
+      redirect "http://#{@stream.server}/stream.php?streamKey=#{@stream.key}"
     end
 
   end
