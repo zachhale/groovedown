@@ -14,10 +14,10 @@ class Result < OpenStruct
         "type" => search_type},
       "method" => "getSearchResults"
     }
-    
-    response = RestClient.post("http://cowbell.grooveshark.com/more.php?getSearchResults", 
+
+    response = RestClient.post("http://cowbell.grooveshark.com/more.php?getSearchResults",
                                request.to_json, :content_type => "application/json")
-    
+
     JSON.parse(response)['result']['Return'].map do |song|
       Result.new(:artist_name => song['ArtistName'],
                  :name => song['SongName'],
